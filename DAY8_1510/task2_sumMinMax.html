@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let arr = [9,11,3,4,5,10]
+        let max=arr[0] //9
+        let min=arr[0] //9
+        for(i=0;i<arr.length;i++){ 
+            if(arr[i]>max){   
+                max=arr[i] 
+            }
+            if(arr[i]<min){
+                min=arr[i] 
+            }
+        }
+        let sum = min+max
+        console.log(sum)
+    </script>
+</body>
+</html>

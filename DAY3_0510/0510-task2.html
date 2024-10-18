@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let num1= +prompt("Enter first Number "); // 2 4 6 8 10
+        let num2= +prompt("Enter secund Number ");
+        let min;
+        let max;
+        if(num1>num2){
+            max=num1;
+            min=num2;
+        }
+        else{
+            max=num2;
+            min=num1;
+        }
+        let flag=0
+        for(i=min;i<=max;i++){
+            if(i%2==0){
+                console.log("even number");
+                flag++
+            }
+        }
+        console.log(flag);
+        
+
+    </script>
+</body>
+</html>

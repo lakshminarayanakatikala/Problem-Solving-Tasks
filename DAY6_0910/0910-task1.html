@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      
+    <script>
+        // let num = +prompt("enter number : ")
+        let arm= (num)=>{
+        check = num
+        final=num
+        sum=0
+        pow =0
+        while(num!=0){
+            num%10 
+            // 5 5 1
+            num=Math.floor(num/10)
+            // 15 1 0
+            pow++
+        }
+        while(check!=0){
+            store = check%10
+            sum = sum +(store**pow)
+            check=Math.floor(check/10)
+        }
+        // console.log(sum)
+        if(sum === final){
+            console.log("armstrong number "+ final +" : " +sum)
+        }
+        else{
+            console.log("not armstrong number " + final +" : " +sum)
+        }
+
+        }
+        arm(1234)
+        arm(1634)
+        arm(153)
+
+
+            
+
+    </script>
+</body>
+</html>
