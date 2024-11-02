@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api cards</title>
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    padding: 20px;
+}
+
+#heading {
+    text-align: center;
+    background-color: #003366;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.condiv {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    padding: 0 50px;
+}
+
+.cardiv {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.cardiv:hover {
+    transform: scale(1.02);
+}
+
+.cardiv h2 {
+    font-size: 1.2em;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.cardiv img {
+    border-radius: 5px;
+}
+
+.cardiv strong {
+    color: #007b83;
+}
+
+.cardiv .description, .cardiv .price, .cardiv .rating {
+    margin: 10px 0;
+}
+button{
+ background-color: #003366;
+ color: white;
+ padding: 10px;
+ border-radius: 5px;
+ border-style: none;
+
+}
+.img{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+    </style>
+</head>
+<body>
+  <h1 id="heading">StoRe_WherE EverYThingG_AvaiLable</h1>
+<!--------------------------------------------------------------------------------------------------->
+    <script>
+
+let containerdiv=document.createElement("div")
+containerdiv.setAttribute("class","condiv")
+async function hello() {
+    res=await fetch("https://fakestoreapi.com/products")
+    data= await res.json()   
+    // console.log(data)
+    let object=data.map((val)=>{
+    let carddiv=document.createElement("div")
+    carddiv.setAttribute("class","cardiv") 
+
+    let carddivparent=document.createElement("div")
+    let img=document.createElement("img")
+    let h2=document.createElement("h2")
+    let div_price=document.createElement("div")
+    let div_rating=document.createElement("div")
+    let div_description=document.createElement("div")
+    
+            carddiv.innerHTML=`<h2>${val.title}</h2>  ` 
+            img.src =val.image
+            img.classList.add("img")
+            console.log(img)
+            div_price.innerHTML=`<strong>Price:</strong>${val.price}<br><br>`
+            carddivparent.innerHTML=`<strong>Category:</strong>${val.category}<br><br>`
+             div_rating.innerHTML=`<strong>Rating:</strong>${val.rating.rate}<br><br>`
+            div_description.innerHTML=`<strong>Description:</strong>${val.description}<br><br>`
+                        
+       let btn=document.createElement("button");
+       btn.innerText="❌"
+       carddiv.append(btn) 
+       carddiv.append(carddivparent,img,h2,div_price,div_rating,div_description)        
+  containerdiv.appendChild(carddiv)
+  document.body.append(containerdiv)
+
+
+  btn.addEventListener("click",()=>{
+    carddiv.style.display="none"
+         })  
+
+    
+
+})
+}
+hello()
+
+  
+    </script>
+</body>
+</html>
